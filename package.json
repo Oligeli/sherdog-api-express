@@ -1,7 +1,7 @@
 {
   "name": "sherdog-api-express",
   "version": "1.0.0",
-  "description": "Express wrapper for Sherdog fighter scraper",
+  "description": "Custom Sherdog scraper API using cheerio",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,6 +9,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "sherdog": "git+https://github.com/valish/sherdog-api.git"
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12"
   }
 }
