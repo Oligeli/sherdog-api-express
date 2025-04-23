@@ -13,7 +13,23 @@ app.get('/fighter/:slug', (req, res) => {
     if (!data) {
       return res.status(500).json({ error: "Could not fetch fighter data." });
     }
-    res.json(data);
+
+    // Len potrebné polia
+    const fighter = {
+      name: data.name,
+      nickname: data.nickname,
+      record: data.record,
+      weight_class: data.weight_class,
+      nationality: data.nationality,
+      birthday: data.birthday,
+      age: data.age,
+      height: data.height,
+      weight: data.weight,
+      association: data.association,
+      birthplace: data.locality
+    };
+
+    res.json(fighter);
   });
 });
 
