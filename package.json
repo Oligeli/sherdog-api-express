@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "sherdog": "1.1.1",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "sherdog": "git+https://github.com/valish/sherdog-api.git"
   }
 }
