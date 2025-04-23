@@ -11,17 +11,17 @@ app.get('/fighter/:slug', async (req, res) => {
   const url = `https://www.sherdog.com/fighter/${slug}`;
 
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/113.0.0.0 Safari/537.36'
+      }
+    });
+
     const $ = cheerio.load(data);
 
     const name = $('span.fn[itemprop="name"]').text().trim();
     const nickname = $('span[itemprop="alternateName"]').text().replace(/["]/g, '').trim();
     const record = $('span[itemprop="record"]').text().trim();
-
-    const getText = (label) => {
-      const match = $(`div.bio span:contains("${label}")`).parent().text();
-      return match ? match.replace(label, '').trim() : '';
-    };
 
     const getStrongText = (label) => {
       const match = $(`strong:contains("${label}")`).parent().text();
